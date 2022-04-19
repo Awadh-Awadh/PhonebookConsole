@@ -41,5 +41,14 @@ namespace PhonebookConsole
                 DisplayContactDetails(contact);
             }
         }
+
+        public void DisplayMatchingContacts(string queryString)
+        {
+            var matchedContacts = _contacts.Where(c => c.Name.Contains(queryString)).ToList();
+            foreach(var contact in matchedContacts)
+            {
+                DisplayContactDetails(contact);
+            }
+        }
     }
 }
