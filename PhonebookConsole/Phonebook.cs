@@ -14,5 +14,17 @@ namespace PhonebookConsole
         {
             _contacts.Add(contact);
         }
+        public void DisplayContact(string number)
+        {
+            var contact = _contacts.FirstOrDefault(c => c.Number == number);
+            if (contact != null)
+            {
+                Console.WriteLine("No contact Found");
+            }
+            else
+            {
+                Console.WriteLine($"Contact: {contact.Name} {contact.Number}")
+            }
+        }
     }
 }
