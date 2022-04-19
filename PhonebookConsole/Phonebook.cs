@@ -14,16 +14,31 @@ namespace PhonebookConsole
         {
             _contacts.Add(contact);
         }
+
+        private void DisplayContactDetails(Contact contact)
+        {
+            {
+                Console.WriteLine($"Contact: {contact.Name} {contact.Number}");
+            }
+        }
         public void DisplayContact(string number)
         {
             var contact = _contacts.FirstOrDefault(c => c.Number == number);
-            if (contact != null)
+            if (contact == null)
             {
                 Console.WriteLine("No contact Found");
             }
             else
             {
-                Console.WriteLine($"Contact: {contact.Name} {contact.Number}")
+               DisplayContactDetails(contact);
+            }
+        }
+
+        public void DisplayAllContacts()
+        {
+            foreach(var contact in _contacts)
+            {
+                DisplayContactDetails(contact);
             }
         }
     }
